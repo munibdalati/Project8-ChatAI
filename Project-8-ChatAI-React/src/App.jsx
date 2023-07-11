@@ -4,8 +4,8 @@ import { Configuration, OpenAIApi } from "openai";
 import "./App.css";
 
 const configuration = new Configuration({
-  organization: "",
-  apiKey: "",
+  organization: "org-gNGh2t2WYIC9ERDLsocPHEI3",
+  apiKey: "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",
 });
 
 const openai = new OpenAIApi(configuration);

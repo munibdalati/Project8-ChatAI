@@ -1,10 +1,11 @@
 //How to Create a CLI Chat AI App With Node.js
 import { Configuration, OpenAIApi } from "openai";
+//help interacting with terminal
 import readline from "readline";
 
 const confiuration = new Configuration({
   organization: "org-gNGh2t2WYIC9ERDLsocPHEI3",
-  apiKey: "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",
+  apiKey: "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",
 });
 
 const openai = new OpenAIApi(confiuration);
@@ -14,8 +15,10 @@ const userInterface = readline.createInterface({
   output: process.stdout,
 });
 
-userInterface.prompt();F=
+//prompt the user to input
+userInterface.prompt();
 
+//when the user enter the enter button
 userInterface.on("line", async (input) => {
   await openai
     .createChatCompletion({
@@ -23,7 +26,9 @@ userInterface.on("line", async (input) => {
       messages: [{ role: "user", content: input }],
     })
     .then((result) => {
+      //output of the assesstaint
       console.log(result.data.choices[0].message.content);
+      //prompt the user to enter another input
       userInterface.prompt();
     })
     .catch((error) => console.log(error));
